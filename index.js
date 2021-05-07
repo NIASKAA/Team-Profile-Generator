@@ -14,6 +14,7 @@ function generateHtml(){
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+        <link rel="stylesheet" href="/assets/css/style.css">
         <title>Team Profile Generator</title>
     </head>
     <body>
@@ -23,12 +24,7 @@ function generateHtml(){
                 Team Profile Generator
             </a>
         </div>
-    </nav>
-
-        <section class="container">
-            <div class="row">
-
-         `;
+    </nav>`;
 
     fs.writeFile('index.html', html, function(err) {
         if(err) {
@@ -121,106 +117,134 @@ function newHtmlMember(member) {
             
             data = 
             `
-            <div class="column is-one-third is-primary">
-                <div class="list">
-                    <ul>
-                        <div class="list-item">
-                            <li>
-                                Engineer
-                            </li>
-                        </div>
-                        <div class="list-item">
-                            <li>
+            <section class="container">
+            <div class="content">
+                <table class="table is-bordered">
+                    <thread class="titleHeader">
+                        <tr class="cardTitle"> 
+                            <th class="has-text-white>Engineer</th>
+                        </tr>
+                    </thread>
+                    <tbody>
+                        <tr>
+                            <td>
                                 Name: ${name}
-                            </li>
-                        </div>    
-                        <div class="list-item">
-                            <li>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>
                                 ID: ${id}
-                            </li>
-                        </div>
-                        <div class="list-item">
-                            <li>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>
                                 Email: ${email}
-                            </li>
-                        </div>
-                        <div class="list-item">
-                            <li>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>
                                 Github Username: ${github}
-                            </li>
-                        </div>
-                    </ul>      
-                </div>
-            </div>`;
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>`;
 
         } else if (role === "Intern") {
             const school = member.getSchool();
             
             data = 
             `
-            <div class="column is-one-third is-primary">
-                <div class="list">
-                    <ul>
-                        <div class="list-item">
-                            <li>
-                                Intern
-                            </li>
-                        </div>
-                        <div class="list-item">
-                            <li>
-                                Name: ${name}
-                            </li>
-                        </div>
-                        <div class="list-item">
-                            <li>
+            <section class="container">
+            <div class="content">
+                <table class="table is-bordered">
+                    <thread class="titleHeader">
+                        <tr class="cardTitle1"> 
+                            <th class="has-text-white>Intern</th>
+                        </tr>
+                    </thread>
+                    <tbody>
+                        <tr>
+                            <td> 
+                                Name: ${name} 
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>
                                 ID: ${id}
-                            </li>
-                        </div>
-                        <div class="list-item">
-                            <li>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>
                                 Email: ${email}
-                            </li>
-                        </div>
-                        <div class="list-item">
-                            <li>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>
                                 School: ${school}
-                            </li>
-                        </div>
-                    </ul>
-                </div>
-            </div>`;
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>`;
 
         } else {
             const officePhoneNum  = member.getOfficeNum();
             data = 
             `
-            <div class="column is-one-third is-primary">
-                <div class="list">
-                    <ul>
-                        <div class="list-item">
-                            <li>
-                                Manager
-                            </li>
-                        </div>
-                        <div class="list-item">
-                            <li>
+            <section class="container">
+            <div class="content">
+                <table class="table is-bordered">
+                    <thread class="titleHeader">
+                        <tr class="cardTitle2"> 
+                            <th class="has-text-white>Manager</th>
+                        </tr>
+                    </thread>
+                    <tbody>
+                        <tr>
+                            <td>
                                 Name: ${name}
-                            </li>
-                        </div>
-                        <div class="list-item">
-                            <li>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>
                                 ID: ${id}
-                            </li>
-                        </div>
-                        <div class="list-item">
-                            <li>
-                                Phone: ${officePhoneNum}
-                            </li>
-                        </div>
-                        
-                    </ul>
-                </div>
-            </div>`;
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>
+                                Email: ${email}
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>
+                                Office Phone Number: ${officePhoneNum}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>`;
         }
         console.log("Adding Team Member");
         fs.appendFile("index.html", data, function(err) {
@@ -235,8 +259,6 @@ function newHtmlMember(member) {
 function closeHtml (){
     let html = 
     `
-    </div>
-    </section>
 </body>
 </html>`;
     fs.appendFile("./index.html", html, function(err) {

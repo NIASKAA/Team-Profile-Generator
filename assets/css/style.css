@@ -1,6 +1,22 @@
 .content {
     width: 500px;
 }
-.table {
+
+.cardTitle{
     background-color: turquoise;
+}
+
+.cardTitle1{
+    background-color: hsl(217, 71%, 53%);
+}
+
+.cardTitle2{
+    background-color: hsl(348, 100%, 61%);
+}
+
+.navbar-item{
+    color: white;
+    font-weight: bolder;
+    float: none;
+    left: 150%;
 }
