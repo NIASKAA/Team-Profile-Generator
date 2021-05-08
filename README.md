@@ -15,7 +15,7 @@ Node.js, Javascript, FS, inquirer, Jest.io
 
 # Links to application
 Link to repo: https://github.com/NIASKAA/Team-Profile-Generator \
-Link to Youtube quick walk-throughhttps://youtu.be/q4wVy1y1Kbw
+Link to Youtube quick walk-through: https://youtu.be/q4wVy1y1Kbw
 
 # Contribution 
 None, only me. 
