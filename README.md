@@ -14,8 +14,8 @@ Node.js, Javascript, FS, inquirer, Jest.io
 [License](https://opensource.org/licenses/MIT)
 
 # Links to application
-Link to repo: https://github.com/NIASKAA/Team-Profile-Generator
-Link to Youtube quick walk-throughhttps://youtu.be/q4wVy1y1Kbw
+Link to repo: https://github.com/NIASKAA/Team-Profile-Generator \
+Link to Youtube quick walk-through: https://youtu.be/7r2fVO7lv0c
 
 # Contribution 
 None, only me. 

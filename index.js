@@ -4,8 +4,11 @@ const Intern = require('./lib/Intern');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 
+// Putting the information into an array
 const employees = [];
 
+// This function will generate the html with partial html elements implemented. 
+// Fs will write out the index.html. 
 function generateHtml(){
     const html = `<!DOCTYPE html>
     <html lang="en">
@@ -20,9 +23,9 @@ function generateHtml(){
     <body>
     <nav class="navbar is-link" role="navigation" aria-label="main-navigation">
         <div>
-            <a class="navbar-item">
+            <p class="navbar-item">
                 Team Profile Generator
-            </a>
+            </p>
         </div>
     </nav>`;
 
@@ -33,6 +36,9 @@ function generateHtml(){
     });
 }
 
+// Similar to readme generator, inquirer will prompt the messages in the terminal 
+// Function addEmployee will generate specific answers depending on what user enter through terminal
+// Lastly it will add the data into newHtml function
 function addEmployee() {
     inquirer.prompt([
         {
@@ -63,13 +69,13 @@ function addEmployee() {
         if(role === "Engineer"){
             moreRoleInfo = "Github Username";
         } else if(role === "Intern"){
-            moreRoleInfo = "School name";
+            moreRoleInfo = "School";
         } else {
-            moreRoleInfo = "Office Phone Number"
+            moreRoleInfo = "Office Phone Number";
         }
         inquirer.prompt([
             {
-                message: "Enter Team Member's ${moreRoleInfo}",
+                message: `Enter Team Member's ${moreRoleInfo}`,
                 name: "moreRoleInfo",
             },
             {
@@ -105,6 +111,9 @@ function addEmployee() {
 
 }
 
+// newHtmlMember function is a function that generate the data into a bulma table to store the data.
+// each table is assigned with a different color for distinction
+// each table also contains the required information for each role
 function newHtmlMember(member) {
     return new Promise(function(resolve, reject) {
         const role = member.getRole();
@@ -122,7 +131,7 @@ function newHtmlMember(member) {
                 <table class="table is-bordered">
                     <thread class="titleHeader">
                         <tr class="cardTitle"> 
-                            <th class="has-text-white>Engineer</th>
+                            <th class="has-text-white">Engineer</th>
                         </tr>
                     </thread>
                     <tbody>
@@ -167,7 +176,7 @@ function newHtmlMember(member) {
                 <table class="table is-bordered">
                     <thread class="titleHeader">
                         <tr class="cardTitle1"> 
-                            <th class="has-text-white>Intern</th>
+                            <th class="has-text-white">Intern</th>
                         </tr>
                     </thread>
                     <tbody>
@@ -211,7 +220,7 @@ function newHtmlMember(member) {
                 <table class="table is-bordered">
                     <thread class="titleHeader">
                         <tr class="cardTitle2"> 
-                            <th class="has-text-white>Manager</th>
+                            <th class="has-text-white">Manager</th>
                         </tr>
                     </thread>
                     <tbody>
@@ -255,6 +264,9 @@ function newHtmlMember(member) {
     });
 }
 
+// closeHtml is what needs to be run at the end to close the generateHTML function because in the ${form}, there
+// is no </body> and </html> to close out the index.html. 
+// fs.appendFile will add data onto the existing index.html.
 function closeHtml (){
     let html = 
     `
