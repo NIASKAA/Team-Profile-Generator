@@ -61,15 +61,15 @@ function addEmployee() {
     ]).then(function ({name, id, email, role}) {
         let moreRoleInfo = "";
         if(role === "Engineer"){
-            moreRoleInfo = "Github username";
+            moreRoleInfo = "Github Username";
         } else if(role === "Intern"){
             moreRoleInfo = "School name";
         } else {
-            moreRoleInfo = "office phone number"
+            moreRoleInfo = "Office Phone Number"
         }
         inquirer.prompt([
             {
-                message: `Enter Team Member's ${moreRoleInfo}`,
+                message: "Enter Team Member's ${moreRoleInfo}",
                 name: "moreRoleInfo",
             },
             {
@@ -246,7 +246,6 @@ function newHtmlMember(member) {
             </div>
         </section>`;
         }
-        console.log("Adding Team Member");
         fs.appendFile("index.html", data, function(err) {
             if(err) {
                 return reject(err);
